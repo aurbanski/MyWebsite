@@ -12,10 +12,10 @@
     <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
           <!-- navbar items, navbar burger... -->
-          <a class="navbar-item">
+          <a class="navbar-item" href="#aboutme">
             About Me
           </a>
-          <a class="navbar-item">
+          <a class="navbar-item" href="#grades">
             Grades
           </a>
           <a class="navbar-item">
@@ -39,7 +39,7 @@
       </div>
     </div>
   </section>
-  <section class="hero is-primary">
+  <section class="hero is-primary" id="aboutme">
     <div class="hero-body">
       <div class="container">
         <h1 class="title is-2">
@@ -67,17 +67,17 @@
           </h2>
           <p>
             My name is Alexander Urbanski and I'm a junior at the University of
-            Colorado, Boulder (a.k.a The Harvard of the Rockies). I major in computer
-            science and have a strong passion for web development as well as data
+            Colorado, Boulder (a.k.a The Harvard of the Rockies). I major in Computer
+            Science and have a strong passion for web development as well as data
             analytics. I switched my major after studying Mechanical Engineering
-            for 2.5 years, and I plan to graduate in May 2019.
+            for 2.5 years, and I plan to graduate in May 2019 with a B.S.
           </p>
           <br />
           <p>
             In my free time I love to watch sports. I'm an Ohio sports fan who
             enjoys watching the Cleveland Browns, Cavaliers, and Indians. I also
-            like to play basketball, go to the gym, and watch TV. Some of my favorite
-            TV shows are Sherlock, Game of Thrones, and Top Chef. I also like to spend
+            like to play basketball, go to the gym, view memes, and watch TV. Some of my favorite
+            TV shows are Sherlock, Game of Thrones, Top Chef, and the Great British Baking Show. I also like to spend
             time with friends hanging out and eating food.
           </p>
           <br />
@@ -93,5 +93,242 @@
       </div>
     </div>
   </section>
+  <section class="hero is-primary" id="grades">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title is-2">
+          Grades
+        </h1>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <h2 class="title is-5">
+            GPA By Semester
+          </h2>
+          <p>
+            This graph shows my GPA by semester.
+            As you can see, my freshman year was not the best year in terms of
+            GPA, but since I have steadily increased my GPA. You can also see on
+            the graph that my GPA in major spcific CSCI courses is a 4.0.
+          </p>
+        </div>
+        <div class="column">
+          <div class="box">
+            <canvas id="gradeChart" width="400" height="200"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <canvas id="gradeChart2" width="400" height="200"></canvas>
+          </div>
+        </div>
+        <div class="column">
+          <h2 class="title is-5">
+            Cumulative GPA By Semester
+          </h2>
+          <p>
+            The next graph shows my cumulative GPA by semester.
+            You can see that I started out with I low GPA but I have worked
+            hard over time to increase my cumulative GPA. My cumulative GPA in
+            CSCI courses still remains at a 4.0.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
+  <script>
+    var ctx = document.getElementById("gradeChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ["Fall 2014", "Spring 2015", "Fall 2015", "Spring 2016", "Summer 2016", "Fall 2016", "Spring 2017"],
+        datasets: [{
+          label: 'GPA',
+          data: [
+            {
+              x: 1,
+              y: 2.733
+            },
+            {
+              x: 2,
+              y: 2.154
+            },
+            {
+              x: 3,
+              y: 3.023
+            },
+            {
+              x: 4,
+              y: 3.764
+            },
+            {
+              x: 5,
+              y: 4.000
+            },
+            {
+              x: 6,
+              y: 3.675
+            },
+            {
+              x: 7,
+              y: 4.000
+            }
+          ],
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255,99,132,1)',
+          borderWidth: 1,
+        },
+        {
+          label: 'CSCI GPA',
+          data: [
+            {
+              x: 1,
+              y: 4.000
+            },
+            {
+              x: 2,
+              y: 4.000
+            },
+            {
+              x: 3,
+              y: 4.000
+            },
+            {
+              x: 4,
+              y: 4.000
+            },
+            {
+              x: 5,
+              y: 4.000
+            },
+            {
+              x: 6,
+              y: 4.000
+            },
+            {
+              x: 7,
+              y: 4.000
+            }
+          ],
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1,
+        }]
+      },
+
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero:true
+            }
+          }]
+        }
+      }
+    });
+
+
+    var ctx2 = document.getElementById("gradeChart2").getContext('2d');
+    var myChart2 = new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: ["Fall 2014", "Spring 2015", "Fall 2015", "Spring 2016", "Summer 2016", "Fall 2016", "Spring 2017"],
+        datasets: [{
+          label: 'GPA',
+          data: [
+            {
+              x: 1,
+              y: 2.733
+            },
+            {
+              x: 2,
+              y: 2.464
+            },
+            {
+              x: 3,
+              y: 2.641
+            },
+            {
+              x: 4,
+              y: 2.927
+            },
+            {
+              x: 5,
+              y: 3.033
+            },
+            {
+              x: 6,
+              y: 3.138
+            },
+            {
+              x: 7,
+              y: 3.293
+            }
+          ],
+          backgroundColor: 'rgba(255, 206, 86, 0.2)',
+          borderColor: 'rgba(255, 206, 86, 1)',
+          borderWidth: 1,
+        },
+        {
+          label: 'CSCI GPA',
+          data: [
+            {
+              x: 1,
+              y: 4.000
+            },
+            {
+              x: 2,
+              y: 4.000
+            },
+            {
+              x: 3,
+              y: 4.000
+            },
+            {
+              x: 4,
+              y: 4.000
+            },
+            {
+              x: 5,
+              y: 4.000
+            },
+            {
+              x: 6,
+              y: 4.000
+            },
+            {
+              x: 7,
+              y: 4.000
+            }
+          ],
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1,
+        }]
+      },
+
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero:true
+            }
+          }]
+        }
+      }
+    });
+  </script>
   </body>
 </html>
